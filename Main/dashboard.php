@@ -57,15 +57,30 @@
         <p class="text2-hero">Trusted By</p>
         </div>
         <div class="search-bar">
-        <input type="text" class="search-input" placeholder="Cari...">
-        <button class="search-button">Cari</button>
-    </div>
-        <div class="kotak2">
-        </div>
+        <form action="searchForm">
+        <input type="text" id="searchInput" class="search-input" placeholder="Cari...">
+        <button type="submit" class="search-button">Cari</button></form>
         </div>
       </main>
     </section>
-        </section>
+    <section class="hero-after">
+    <div class="warning">
+    <a href="#"><i class="icon" data-feather="alert-triangle"></i></a>
+    <p>Check the latest COVID-19 restriction before you travel. <span>Learn more</span></p>
+    </div>
+    </div>
+    <div class="destinasi" id="gallery">
+    <a href="#" class="wisata">
+      <p class="title-wisata">Enjoy Your Dream Vacation</p>
+         <img src="img/mangku.jpg" alt="wisata">
+    </a>
+    <p class="judul-wisata">Mangku Sakti</p>
+    <p class="desk-wisata">Sembalun Bumbung , 28 Oktober 2000
+    Rafli adalah seorang pendaki handal yang memiliki kecintaan mendalam terhadap kegiatan petualangan di alam bebas. Sebagai seorang pendaki yang berpengalaman, Rafli dikenal sebagai individu yang sangat disiplin, penuh semangat, dan memiliki keuletan tinggi dalam menghadapi berbagai tantangan alam.Rp. 700.000 /3 hari</p>
+    <div class="button-view">
+    <button href="index.php" class="view-dest" id="view">view</button></div>
+    </section>
+</section>
     <script>
       feather.replace();
     </script>

@@ -2,6 +2,7 @@
   --primary: #000000;
   --bg: #ffffff;
   --secondary: #59d672;
+  --button: #408af1;
 }
 
 * {
@@ -176,4 +177,68 @@ body {
   top: 67%;
   border-radius: 5%;
   left: 45%;
+}
+.hero-after .icon {
+  position: absolute;
+  left: 20px;
+  color: #000000;
+}
+.hero-after .warning {
+  background-color: #fcefca; /* Warna latar belakang */
+  color: var(--primary); /* Warna teks */
+  padding: 10px; /* Padding (jeda) di sekitar teks */
+  border-radius: 5px; /* Sudut border */
+  margin: 10px 0; /* Jarak dengan elemen lain */
+  width: 1300px;
+  height: 50px;
+  position: relative;
+  left: 90px;
+  justify-content: space-between;
+}
+.hero-after .warning span {
+  color: var(--button);
+}
+.hero-after p {
+  position: absolute;
+  left: 70px;
+}
+.hero-after .destinasi .wisata img {
+  position: absolute;
+  width: 440px;
+  height: 300px;
+  left: 90px;
+  top: 760px;
+  border-radius: 5%;
+}
+.hero-after .destinasi .wisata .title-wisata {
+  font-size: 23px;
+  line-height: 1rem;
+  position: relative;
+  top: 30px;
+  left: 90px;
+  color: var(--primary);
+  font-family: "Montserrat", sans-serif;
+}
+.hero-after .destinasi .judul-wisata {
+  font-size: 23px;
+  line-height: 1.5rem;
+  position: relative;
+  top: 80px;
+  left: 40%;
+  color: var(--primary);
+}
+.hero-after .destinasi .desk-wisata {
+  width: 54%;
+  position: relative;
+  left: 40%;
+  top: 100px;
+}
+.hero-after .button-view .view-dest {
+  width: 100px;
+  height: 30px;
+  position: relative;
+  left: 87%;
+  top: 200px;
+  color: var(--bg);
+  background-color: var(--button);
 }

@@ -60,11 +60,17 @@
         <div class="search-bar">
         <input type="text" class="search-input" placeholder="Cari...">
         <button class="search-button">Cari</button>
-    </div>
-        <div class="kotak2">
-        </div>
         </div>
       </main>
+    </section>
+    <body class="hero-after">
+    <div class="warning">
+    <a href="#"><i class="icon" data-feather="alert-triangle"></i></a>
+    <p>Check the latest COVID-19 restriction before you travel. <span>Learn more</span></p>
+
+    </div>
+    </body>
+
     </section>
         </section>
     <script>

@@ -3,7 +3,7 @@ include "database.php";
 session_start();
 
 if(isset($_SESSION["is_login"])){
-  header("location: login_menu.php");
+  header("location: login.php");
 }
 if(isset($_POST['login'])) {
   $name = isset($_POST['name']) ? $_POST['name'] : "";
