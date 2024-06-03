@@ -3,12 +3,10 @@ include "database.php";
 if(isset($_POST['register'])) {
     // membuat koneksi
     $conn = new mysqli($servername, $username, $password, $dbname);
-
     // cek koneksi
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
-
     // menerima data dari form
     $name = isset($_POST['name']) ? $_POST['name'] : "";
     $password = isset($_POST['password']) ? $_POST['password'] : "";
@@ -41,10 +39,9 @@ echo "<script>
 </script>";
 
         } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
+            echo "Error: " .$sql . "<br>" . $conn->error;
         }
     }
-
     $conn->close();
 }
 ?>

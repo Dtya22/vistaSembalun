@@ -11,16 +11,17 @@ if(isset($_POST['login'])) {
     // Ambil data pengguna dari database
     $sql = "SELECT * FROM pengguna WHERE nama_pengguna='$name' AND kata_sandi='$password'" ;
     $result = $conn->query($sql);
-
     if ($result->num_rows > 0) {
-        $data = $result -> fetch_assoc();
-
+        $data = $result->fetch_assoc();
+        $_SESSION["is_login"] = true;
+        $_SESSION["username"] = $data["nama_pengguna"]; // Store the username in the session
         header("location: dashboard.php");
-    }else{
-          echo"akun tidak ditemukan";
-        }
+    } else {
+        echo "Akun tidak ditemukan";
+    }
 }
 ?>
+
 
 <!DOCTYPE html>
 <lang="en">
@@ -33,7 +34,7 @@ if(isset($_POST['login'])) {
 <body>
     <div class="container">
         <h1>Login</h1>
-        <form action="#" method="post">
+        <form action="login.php" method="post">
             <div class="input-group">
                 <input type="text" id="name" name="name" required>
                 <label for="name">Username</label>

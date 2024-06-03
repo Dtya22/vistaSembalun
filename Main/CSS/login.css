@@ -13,10 +13,12 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  background-image: url('img/1.png'); /* Ganti 'path/to/your/image.jpg' dengan path gambar Anda */
+  background-size: cover; /* Agar gambar mengisi seluruh background */
 }
 
 .container {
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.8); /* Tambahkan transparansi pada latar belakang */
   border-radius: 10px;
   padding: 50px;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
@@ -70,7 +72,7 @@ input[type="password"]:valid + label {
   color: var(--secondary);
 }
 
-button {
+.container button {
   background-color: var(--secondary);
   color: #fff;
   border: none;
@@ -82,8 +84,23 @@ button {
   transition: background-color 0.3s ease;
 }
 
-button:hover {
+.container button:hover {
   background-color: var(--secondary);
+}
+
+.container .button-container {
+  display: flex;
+  width: 10px;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.container .button-container button {
+  margin: 0 10px;
+  color: #ccc;
+  padding: 5px 10px;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 .footer a {

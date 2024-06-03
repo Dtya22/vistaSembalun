@@ -76,7 +76,7 @@
     <script>
       feather.replace();
     </script>
-     <script src="script.js"></script>
+     <script src="JS/script.js"></script>
   </body>
 
 

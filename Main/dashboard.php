@@ -1,4 +1,15 @@
+<?php
+    // Start the session
+    session_start();
 
+if (!isset($_SESSION["is_login"])) {
+    header("location: login.php");
+    exit;
+}
+
+    $username = $_SESSION["username"]; // Retrieve the username from the session
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -31,16 +42,18 @@
         <a href="#" class="logo">
          <img src="img/vistaLogo.png" alt="Logo">
         </a>
-        <a href="#" class="navbar-logo">VistaSembalun</a>
+        <a href="#" class="navbar-logo">Welcome, <?php echo $username; ?>.</a>
         <div class="navbar-nav">
-        <a href="#home">Home</a>
-        <a href="#about">Galery</a>
-        <a href="#menu">Menu</a>
+        <a href="#home" id="home">Home</a>
+        <a href="#">Galery</a>
+       <a href="#menu">Menu</a>
         <a href="#kontak">Kontak</a>
+        </div>
       </div>
       <div class="navbar-extra">
         <div class="search-container">
-        <button class="login" id="logout">Log Out</button>
+        <button type="submit" class="logout" id="logout">Log Out</button>
+    </div>
     </div>
         </div>
       </div>
@@ -48,44 +61,150 @@
     <section class="hero" id="home">
       <main class="content">
         <div class="kotak"> 
-        <img src="img/sembalun4.jpg" alt="Gambar" class="gambar"/>
-        <div class="logo-dinpar">
-          <img src="img/wonder.png" alt="Dinpar Logo"/>
-        </div>
-        <p class="text-hero">Enjoy Your Dream Vacation With Sembalun</p>
-        <p class="text1-hero">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam quasi voluptatem laboriosam a dicta quam, eius sequi id aperiam sunt.</p>
-        <p class="text2-hero">Trusted By</p>
+          <img src="img/sembalun4.jpg" alt="Gambar" class="gambar"/>
+          <div class="logo-dinpar">
+            <img src="img/wonder.png" alt="Dinpar Logo"/>
+          </div>
+            <p class="text-hero">Enjoy Your Dream Vacation With Sembalun</p>
+            <p class="text1-hero">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam quasi voluptatem laboriosam a dicta quam, eius sequi id aperiam sunt.</p>
+           <p class="text2-hero">Trusted By</p>
         </div>
         <div class="search-bar">
-        <form action="searchForm">
-        <input type="text" id="searchInput" class="search-input" placeholder="Cari...">
-        <button type="submit" class="search-button">Cari</button></form>
+          <form action="searchForm">
+          <input type="text" id="searchInput" class="search-input" placeholder="Cari...">
+          <button type="submit" class="search-button">Cari</button></form>
         </div>
       </main>
     </section>
     <section class="hero-after">
     <div class="warning">
-    <a href="#"><i class="icon" data-feather="alert-triangle"></i></a>
-    <p>Check the latest COVID-19 restriction before you travel. <span>Learn more</span></p>
-    </div>
+      <a href="#"><i class="icon" data-feather="alert-triangle"></i></a>
+      <p>Check the latest COVID-19 restriction before you travel. <span>Learn more</span></p>
     </div>
     <div class="destinasi" id="gallery">
+      <div class="wisata">
     <a href="#" class="wisata">
-      <p class="title-wisata">Enjoy Your Dream Vacation</p>
-         <img src="img/mangku.jpg" alt="wisata">
+      <p class="title-wisata">Explore stays in trending destinations</p>
     </a>
-    <p class="judul-wisata">Mangku Sakti</p>
-    <p class="desk-wisata">Sembalun Bumbung , 28 Oktober 2000
-    Rafli adalah seorang pendaki handal yang memiliki kecintaan mendalam terhadap kegiatan petualangan di alam bebas. Sebagai seorang pendaki yang berpengalaman, Rafli dikenal sebagai individu yang sangat disiplin, penuh semangat, dan memiliki keuletan tinggi dalam menghadapi berbagai tantangan alam.Rp. 700.000 /3 hari</p>
-    <div class="button-view">
-    <button href="index.php" class="view-dest" id="view">view</button></div>
+  </div>
     </section>
+    <section class="utama">  
+    <div class="card-container">
+          <div class="card">
+              <img src="img/rinjani.png" alt="Gambar 1">
+              <div class="card-content">
+                 <h3>Mangku Sakti</h3>
+                 <p class="text-icon">sembalun Lawang</p>
+                 <a href="button">view</a>
+              </div>
+          </div>
+          <div class="card">
+              <img src="img/mangkuSakti.png" alt="Gambar 1">
+              <div class="card-content">
+                 <h3>Mangku Sakti</h3>
+                 <p class="text-icon">sembalun Lawang </p>
+                 <a href="button">view</a>
+              </div>
+          </div>
+          <div class="card">
+              <img src="img/paljepang.png" alt="Gambar 1">
+              <div class="card-content">
+                 <h3>Mangku Sakti</h3>
+                 <p class="text-icon">sembalun Lawang </p>
+                 <a href="button">view</a>
+              </div>
+          </div>
+          <div class="card">
+              <img src="img/mangkuKodek.png" alt="Gambar 1">
+              <div class="card-content">
+                 <h3>Mangku Sakti</h3>
+                 <p class="text-icon">sembalun Lawang </p>
+                 <a href="button">view</a>
+              </div>
+          </div>
+          <div class="tittle">
+          <p class="text-tittle">Waterfall recomendations</p>
+          </div>    
+    </div>
+  <div class="card-container2">
+    <div class="card">
+              <img src="img/mangkuSakti.png" alt="Gambar 1">
+              <div class="card-content">
+                 <h3>Mangku sakti</h3>
+                 <p class="text-icon">sembalun Lawang</p>
+                 <a href="button">view</a>
+              </div>
+          </div>
+          <div class="card">
+              <img src="img/dewiS.png" alt="Gambar 1">
+              <div class="card-content">
+                 <h3>Dewi selendang</h3>
+                 <p class="text-icon">sembalun Lawang </p>
+                 <a href="button">view</a>
+              </div>
+          </div>
+          <div class="card">
+              <img src="img/mangkuKodek.png" alt="Gambar 1">
+              <div class="card-content">
+                 <h3>Mangku kodek</h3>
+                 <p class="text-icon">sembalun Lawang </p>
+                 <a href="button">view</a>
+              </div>
+          </div>
+          <div class="card">
+              <img src="img/umarMaya.png" alt="Gambar 1">
+              <div class="card-content">
+                 <h3>Umar maya</h3>
+                 <p class="text-icon">sembalun Lawang </p>
+                 <a href="button">view</a>
+              </div>
+          </div>
+          <div class="tittle2">
+          <p class="text-tittle">Mountain & hill recomendations</p>
+          </div>
+    </div>
+    <div class="card-container3">
+    <div class="card">
+              <img src="img/rinjani.png" alt="Gambar 1">
+              <div class="card-content">
+                 <h3>Rinjani</h3>
+                 <p class="text-icon">sembalun Lawang</p>
+                 <a href="button">view</a>
+              </div>
+          </div>
+          <div class="card">
+              <img src="img/pergasingan.png" alt="Gambar 1">
+              <div class="card-content">
+                 <h3>Pergasingan</h3>
+                 <p class="text-icon">sembalun Lawang </p>
+                 <a href="button">view</a>
+              </div>
+          </div>
+          <div class="card">
+              <img src="img/anakDara.png" alt="Gambar 1">
+              <div class="card-content">
+                 <h3>Anak dara</h3>
+                 <p class="text-icon">sembalun Lawang </p>
+                 <a href="button">view</a>
+              </div>
+          </div>
+          <div class="card">
+              <img src="img/paljepang.png" alt="Gambar 1">
+              <div class="card-content">
+                 <h3>Pal jepang</h3>
+                 <p class="text-icon">sembalun Lawang </p>
+                 <a href="button">view</a>
+              </div>
+          </div>
+    </div>
+</div> 
 </section>
     <script>
       feather.replace();
     </script>
-     <script src="scriptdash.js"></script>
+<script src="JS/scriptdash.js"></script>
   </body>
-
-
+  <body>
+  <?php include "layout/footer2.php"?>
+  </body>
 </html>
