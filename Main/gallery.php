@@ -1,62 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- my style -->
-    <link rel="stylesheet" href="CSS/gallery.css" />
-    <link rel="stylesheet" href="footer.html" />
-  </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Gambar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
 
-  <body>
-    <nav class="navbar">
-        <a href="#" class="logo">
-         <img src="img/vistaLogo.png" alt="Logo">
-        </a>
-        <a href="#" class="navbar-logo">VistaSembalun</a>
-        <div class="navbar-nav">
-        <a href="#home" id="home">Home</a>
-        <a href="#">Galery</a>
-       <a href="#menu">Menu</a>
-        <a href="#kontak">Kontak</a>
-        </div>
-      </div>
-      <div class="navbar-extra">
-        <div class="search-container">
-        <form method="post">
-        <input type="submit" name="logout" value="Logout">
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="file"],
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type="file"] {
+            border: none;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h2>Upload Gambar</h2>
+    <form id="uploadForm" enctype="multipart/form-data" action="upload.php" method="POST">
+        <label for="image">Pilih Gambar:</label>
+        <input type="file" name="image" id="image" accept="image/jpeg, image/png">
+        
+        <label for="nama_destinasi">Nama Destinasi:</label>
+        <input type="text" name="nama_destinasi" id="nama_destinasi">
+
+        <label for="alamat">Alamat:</label>
+        <input type="text" name="alamat" id="alamat">
+
+        <label for="harga_tiket">harga tiket:</label>/org
+        <input type="text" name="harga_tiket" id="harga_tiket">
+        
+        <button type="submit">Unggah</button>
     </form>
-    </div>
-        </div>
-      </div>
-    </nav>
-<section class="gallery" id="gallery">
-      <div class="container">
-        <div class="gallery-box">
-          <div class="box">
-            <h1 data-aos="fade-up">Our Gallery</h1>
-            <p data-aos="fade-up" data-aos-delay="200">Berikut ini beberapa Gambar Destinasi</p>
-          </div>
-          <div class="box">
-            <a href="../img/1.png" target="_blank" data-aos="fade-in" data-aos-delay="400">
-              <img src="img/1.png" alt="unsplash.com" />
-            </a>
-            <a href="assets/images/gallery/gallery-2.jpg" target="_blank" data-aos="fade-in" data-aos-delay="400">
-              <img src="img/1.png" alt="unsplash.com" />
-            </a>
-            <a href="assets/images/gallery/gallery-3.jpg" target="_blank" data-aos="fade-in" data-aos-delay="400">
-              <img src="img/1.png" alt="unsplash.com" />
-            </a>
-            <a href="assets/images/gallery/gallery-4.jpg" target="_blank" data-aos="fade-in" data-aos-delay="400">
-              <img src="img/1.png" alt="unsplash.com" />
-            </a>
-            <a href="assets/images/gallery/gallery-5.jpg" target="_blank" data-aos="fade-in" data-aos-delay="400">
-              <img src="img/1.png" alt="unsplash.com" />
-            </a>
-            <a href="assets/images/gallery/gallery-6.jpg" target="_blank" data-aos="fade-in" data-aos-delay="400">
-              <img src="img/1.png" alt="unsplash.com" />
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
+</body>
+</html>

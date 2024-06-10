@@ -2,20 +2,50 @@
 include "database.php";
 session_start();
 
-if(isset($_SESSION["is_login"])){
-  header("location: login.php");
+if (isset($_SESSION["is_login"])) {
+    header("location: dashboard.php");
+    exit();
 }
-if(isset($_POST['login'])) {
-  $name = isset($_POST['name']) ? $_POST['name'] : "";
-  $password = isset($_POST['password']) ? $_POST['password'] : "";
+
+if (isset($_COOKIE["cookie_username"]) && isset($_COOKIE["cookie_password"])) {
+    // Optionally check these cookies against the database
+    $name = $_COOKIE["cookie_username"];
+    $password = $_COOKIE["cookie_password"]; // Assume it is already MD5 hashed
+
     // Ambil data pengguna dari database
-    $sql = "SELECT * FROM pengguna WHERE nama_pengguna='$name' AND kata_sandi='$password'" ;
+    $sql = "SELECT * FROM pengguna WHERE nama_pengguna='$name' AND md5(kata_sandi)='$password'";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         $data = $result->fetch_assoc();
         $_SESSION["is_login"] = true;
         $_SESSION["username"] = $data["nama_pengguna"]; // Store the username in the session
         header("location: dashboard.php");
+        exit();
+    }
+}
+
+function setLoginCookies($name, $password) {
+    // Set cookies for username and password
+    $cookie_time = time() + (1 * 24 * 60 * 60); // 1 day
+    setcookie("cookie_username", $name, $cookie_time, "/");
+    setcookie("cookie_password", md5($password), $cookie_time, "/");
+}
+
+if (isset($_POST['login'])) {
+    $name = isset($_POST['name']) ? $_POST['name'] : "";
+    $password = isset($_POST['password']) ? $_POST['password'] : "";
+
+    // Ambil data pengguna dari database
+    $sql = "SELECT * FROM pengguna WHERE nama_pengguna='$name' AND kata_sandi='$password'";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        $data = $result->fetch_assoc();
+        $_SESSION["is_login"] = true;
+        $_SESSION["username"] = $data["nama_pengguna"]; // Store the username in the session
+        // Panggil fungsi untuk mengatur cookies saat login berhasil
+        setLoginCookies($name, $password);
+        header("location: dashboard.php");
+        exit();
     } else {
         echo "Akun tidak ditemukan";
     }

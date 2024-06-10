@@ -1,15 +1,24 @@
 <?php
-    // Start the session
-    session_start();
+// Koneksi ke database
+$koneksi = mysqli_connect("localhost", "root", "", "vistas");
 
-if (!isset($_SESSION["is_login"])) {
-    header("location: login.php");
-    exit;
+// Cek koneksi
+if (mysqli_connect_errno()) {
+    echo "Koneksi database gagal: " . mysqli_connect_error();
+    exit();
 }
 
-    $username = $_SESSION["username"]; // Retrieve the username from the session
+// Ambil data gambar dari database
+$query = "SELECT * FROM images";
+$result = mysqli_query($koneksi, $query);
 
+// Cek apakah query berhasil
+if (!$result) {
+    echo "Terjadi kesalahan saat menjalankan query: " . mysqli_error($koneksi);
+    exit();
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -42,7 +51,7 @@ if (!isset($_SESSION["is_login"])) {
         <a href="#" class="logo">
          <img src="img/vistaLogo.png" alt="Logo">
         </a>
-        <a href="#" class="navbar-logo">Welcome, <?php echo $username; ?>.</a>
+        <a href="#" class="navbar-logo"></a>
         <div class="navbar-nav">
         <a href="#home" id="home">Home</a>
         <a href="#">Galery</a>
@@ -52,7 +61,9 @@ if (!isset($_SESSION["is_login"])) {
       </div>
       <div class="navbar-extra">
         <div class="search-container">
-        <button type="submit" class="logout" id="logout">Log Out</button>
+        <form id="logoutForm" method="post">
+    <button type="submit" class="logout" id="logout">Log Out</button>
+</form>
     </div>
     </div>
         </div>
@@ -81,124 +92,21 @@ if (!isset($_SESSION["is_login"])) {
       <a href="#"><i class="icon" data-feather="alert-triangle"></i></a>
       <p>Check the latest COVID-19 restriction before you travel. <span>Learn more</span></p>
     </div>
-    <div class="destinasi" id="gallery">
-      <div class="wisata">
-    <a href="#" class="wisata">
-      <p class="title-wisata">Explore stays in trending destinations</p>
-    </a>
-  </div>
     </section>
-    <section class="utama">  
-    <div class="card-container">
-          <div class="card">
-              <img src="img/rinjani.png" alt="Gambar 1">
-              <div class="card-content">
-                 <h3>Mangku Sakti</h3>
-                 <p class="text-icon">sembalun Lawang</p>
-                 <a href="button">view</a>
-              </div>
-          </div>
-          <div class="card">
-              <img src="img/mangkuSakti.png" alt="Gambar 1">
-              <div class="card-content">
-                 <h3>Mangku Sakti</h3>
-                 <p class="text-icon">sembalun Lawang </p>
-                 <a href="button">view</a>
-              </div>
-          </div>
-          <div class="card">
-              <img src="img/paljepang.png" alt="Gambar 1">
-              <div class="card-content">
-                 <h3>Mangku Sakti</h3>
-                 <p class="text-icon">sembalun Lawang </p>
-                 <a href="button">view</a>
-              </div>
-          </div>
-          <div class="card">
-              <img src="img/mangkuKodek.png" alt="Gambar 1">
-              <div class="card-content">
-                 <h3>Mangku Sakti</h3>
-                 <p class="text-icon">sembalun Lawang </p>
-                 <a href="button">view</a>
-              </div>
-          </div>
-          <div class="tittle">
-          <p class="text-tittle">Waterfall recomendations</p>
-          </div>    
-    </div>
-  <div class="card-container2">
-    <div class="card">
-              <img src="img/mangkuSakti.png" alt="Gambar 1">
-              <div class="card-content">
-                 <h3>Mangku sakti</h3>
-                 <p class="text-icon">sembalun Lawang</p>
-                 <a href="button">view</a>
-              </div>
-          </div>
-          <div class="card">
-              <img src="img/dewiS.png" alt="Gambar 1">
-              <div class="card-content">
-                 <h3>Dewi selendang</h3>
-                 <p class="text-icon">sembalun Lawang </p>
-                 <a href="button">view</a>
-              </div>
-          </div>
-          <div class="card">
-              <img src="img/mangkuKodek.png" alt="Gambar 1">
-              <div class="card-content">
-                 <h3>Mangku kodek</h3>
-                 <p class="text-icon">sembalun Lawang </p>
-                 <a href="button">view</a>
-              </div>
-          </div>
-          <div class="card">
-              <img src="img/umarMaya.png" alt="Gambar 1">
-              <div class="card-content">
-                 <h3>Umar maya</h3>
-                 <p class="text-icon">sembalun Lawang </p>
-                 <a href="button">view</a>
-              </div>
-          </div>
-          <div class="tittle2">
-          <p class="text-tittle">Mountain & hill recomendations</p>
-          </div>
-    </div>
-    <div class="card-container3">
-    <div class="card">
-              <img src="img/rinjani.png" alt="Gambar 1">
-              <div class="card-content">
-                 <h3>Rinjani</h3>
-                 <p class="text-icon">sembalun Lawang</p>
-                 <a href="button">view</a>
-              </div>
-          </div>
-          <div class="card">
-              <img src="img/pergasingan.png" alt="Gambar 1">
-              <div class="card-content">
-                 <h3>Pergasingan</h3>
-                 <p class="text-icon">sembalun Lawang </p>
-                 <a href="button">view</a>
-              </div>
-          </div>
-          <div class="card">
-              <img src="img/anakDara.png" alt="Gambar 1">
-              <div class="card-content">
-                 <h3>Anak dara</h3>
-                 <p class="text-icon">sembalun Lawang </p>
-                 <a href="button">view</a>
-              </div>
-          </div>
-          <div class="card">
-              <img src="img/paljepang.png" alt="Gambar 1">
-              <div class="card-content">
-                 <h3>Pal jepang</h3>
-                 <p class="text-icon">sembalun Lawang </p>
-                 <a href="button">view</a>
-              </div>
-          </div>
-    </div>
-</div> 
-</section>
+    <div class="gallery">
+    <?php while($row = mysqli_fetch_assoc($result)): ?>
+        <div class="card">
+            <img src="uploads/<?php echo $row['image_name']; ?>" alt="Gambar">
+            <div class="card-body">
+                <h3><?php echo $row['nama_destinasi']; ?></h3>
+                <p><?php echo $row['alamat']; ?></p>
+                <a href="detail.php?id=<?php echo $row['id']; ?>" class="btn-view">View</a>
+            </div>
+        </div>
+    <?php endwhile; ?>
+</div>
+
+
     <script>
       feather.replace();
     </script>
@@ -208,3 +116,4 @@ if (!isset($_SESSION["is_login"])) {
   <?php include "layout/footer2.php"?>
   </body>
 </html>
+<?php mysqli_close($koneksi); ?>

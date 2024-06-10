@@ -7,14 +7,12 @@ if(isset($_POST['register'])) {
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
-    // menerima data dari form
     $name = isset($_POST['name']) ? $_POST['name'] : "";
     $password = isset($_POST['password']) ? $_POST['password'] : "";
     $fname = isset($_POST['fname']) ? $_POST['fname'] : "";
     $lname = isset($_POST['lname']) ? $_POST['lname'] : "";
     $email = isset($_POST['email']) ? $_POST['email'] : "";
 
-    // Memeriksa apakah username dan email tidak sama
     $sql_check = "SELECT * FROM pengguna WHERE nama_pengguna = '$name' OR email = '$email'";
     $result_check = $conn->query($sql_check);
 

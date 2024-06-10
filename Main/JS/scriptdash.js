@@ -1,3 +1,4 @@
+import 'react'
 console.log('Tes script')
 document.getElementById("logout").addEventListener("click", function () {
   // Ganti URL berikut dengan URL tujuan Anda
@@ -45,6 +46,22 @@ document.addEventListener('click', function(event) {
     }
 });
 document.getElementById("logout").addEventListener("click", function () {
-  // Ganti URL berikut dengan URL tujuan Anda
   window.location.href = "index.php";
+});
+$(document).ready(function(){
+  $('#uploadForm').submit(function(e){
+      e.preventDefault();
+      var formData = new FormData(this);
+
+      $.ajax({
+          url: 'upload.php',
+          type: 'POST',
+          data: formData,
+          processData: false,
+          contentType: false,
+          success: function(response){
+              alert(response);
+          }
+      });
+  });
 });
