@@ -57,5 +57,8 @@
     feather.replace();
 </script>
 <script src="JS/script.js"></script>
+<body>
+  <?php include "layout/footer.php"?>
+  </body>
 </body>
 </html>

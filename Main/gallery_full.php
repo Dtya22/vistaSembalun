@@ -67,6 +67,9 @@ if (!$result2) {
         </div>
       </div>
     </nav>
+    <div class="Gcategory">
+      <h3 text-align="center">Waterfall</h3>
+    </div>
     <div class="gallery">
     <?php while($row = mysqli_fetch_assoc($result)): ?>
         <div class="card">
@@ -79,7 +82,9 @@ if (!$result2) {
         </div>
     <?php endwhile; ?>
 </div>
-<p>mountain & hill</p>
+<div class="Gcategory">
+    <h3 text-align="center">Mountain & Hill</h3>
+</div>
 <div class="gallery">
     <?php while($row = mysqli_fetch_assoc($result2)): ?>
         <div class="card">

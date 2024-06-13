@@ -67,9 +67,9 @@ if (!$result2) {
         <a href="dashboard.php" class="navbar-logo"></a>
         <div class="navbar-nav">
         <a href="#dashboard.php" id="home">Home</a>
-        <a href="gallery_full.php">Galery</a>
-       <a href="#menu">Menu</a>
-        <a href="#kontak">Kontak</a>
+        <a href="gallery_full.php">Gallery</a>
+       <a href="#">Menu</a>
+        <a href="#footer.php">Kontak</a>
         </div>
       </div>
       <div class="navbar-extra">
@@ -101,6 +101,9 @@ if (!$result2) {
       <p>Check the latest COVID-19 restriction before you travel. <span>Learn more</span></p>
     </div>
     </section>
+    <div class="Hcategory">
+        <h3>Waterfall</h3>
+    </div>
     <div class="gallery">
     <?php while($row = mysqli_fetch_assoc($result)): ?>
         <div class="card">
@@ -113,7 +116,9 @@ if (!$result2) {
         </div>
     <?php endwhile; ?>
 </div>
-<p>mountain & hill</p>
+<div class="Hcategory">
+    <h3>Mountain & Hill</h3>
+</div>
 <div class="gallery">
     <?php while($row = mysqli_fetch_assoc($result2)): ?>
         <div class="card">
@@ -133,8 +138,10 @@ if (!$result2) {
     </script>
 <script src="JS/scriptdash.js"></script>
   </body>
-  <body>
-  <?php include "layout/footer.php"?>
-  </body>
+<body id="kontak">
+    <section id="kontak">
+        <?php include "layout/footer.php"?>
+    </section>
+</body>
 </html>
 <?php mysqli_close($koneksi); ?>

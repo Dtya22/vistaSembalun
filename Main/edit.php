@@ -18,6 +18,7 @@ if(isset($_GET['id'])) {
         $nama_destinasi = $row['nama_destinasi'];
         $alamat = $row['alamat'];
         $deskripsi = $row['deskripsi'];
+        $harga_tiket = $row['harga_tiket'];
 
         // Periksa apakah tombol "Simpan Perubahan" ditekan
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -25,9 +26,11 @@ if(isset($_GET['id'])) {
             $nama_destinasi_baru = $_POST['nama_destinasi'];
             $alamat_baru = $_POST['alamat'];
             $deskripsi_baru = $_POST['deskripsi'];
+            $tiket_baru = $_POST['harga_tiket'];
+            
             
             // Update data di database
-            $update_sql = "UPDATE images SET nama_destinasi='$nama_destinasi_baru', alamat='$alamat_baru', deskripsi='$deskripsi_baru' WHERE id=$id";
+            $update_sql = "UPDATE images SET nama_destinasi='$nama_destinasi_baru', alamat='$alamat_baru', deskripsi='$deskripsi_baru', harga_tiket='$tiket_baru' WHERE id=$id";
 
             if ($conn->query($update_sql) === TRUE) {
                 // Pesan berhasil disimpan dalam variabel PHP
@@ -58,6 +61,8 @@ if(isset($_GET['id'])) {
         <input type="text" id="nama_destinasi" name="nama_destinasi" value="<?php echo $nama_destinasi; ?>"><br>
         <label for="alamat">Alamat:</label><br>
         <input type="text" id="alamat" name="alamat" value="<?php echo $alamat; ?>"><br>
+        <label for="harga_tiket">Harga tiket:</label><br>
+        <input type="text" id="harga_tiket" name="harga_tiket" value="<?php echo $harga_tiket; ?>"><br>
         <label for="deskripsi">Deskripsi:</label><br>
         <textarea id="deskripsi" name="deskripsi" rows="4" cols="50"><?php echo $deskripsi; ?></textarea><br>
         <button type="submit">Simpan Perubahan</button>

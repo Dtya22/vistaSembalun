@@ -12,7 +12,7 @@
         padding: 0;
       }
       .footer {
-        background-color: #f1f1f1;
+        background-color: #333;
         padding: 20px;
         display: flex;
         justify-content: space-between;
@@ -26,7 +26,7 @@
         margin-top: 50px;
         margin-left: 100px;
         text-align: left; /* Mengatur posisi teks di kiri */
-        color: #333333; /* Mengubah warna judul menjadi #333 */
+        color: #ffff; /* Mengubah warna judul menjadi #333 */
       }
       .center-section {
         display: flex;
@@ -45,7 +45,7 @@
       }
       .footer-nav li a {
         text-decoration: none;
-        color: #333;
+        color: #ffff;
       }
       .footer-nav li:first-child a {
         font-weight: bold; /* Menjadikan teks pada navigasi pertama menjadi bold */
@@ -63,7 +63,7 @@
       }
       .social-media li a {
         text-decoration: none;
-        color: #333;
+        color: #fff;
         border-radius: 10px; /* Menjadikan sudut tombol tumpul */
       }
       .reservation {
@@ -71,7 +71,7 @@
         width: 300px;
       }
       .reservation h3 {
-        color: #333; /* Mengubah warna teks "Ayo reservasi tempatmu sekarang" menjadi #333 */
+        color: #fff; /* Mengubah warna teks "Ayo reservasi tempatmu sekarang" menjadi #333 */
       }
       .reservation input[type="email"] {
         padding: 10px;
@@ -110,49 +110,20 @@
       <div class="left-section">
         <h2>Vista Sembalun</h2>
         <div class="social-media">
-          <ul>
-            <li>
-              <a href="#" title="Facebook"
-                ><img
-                  src="img/Facebook.png"
-                  alt="Facebook"
-                  width="24"
-                  height="24"
-              /></a>
-            </li>
-            <li>
-              <a href="#" title="X (formerly Twitter)"
-                ><img src="img/X.png" alt="X" width="24" height="24"
-              /></a>
-            </li>
-            <li>
-              <a href="#" title="TikTok"
-                ><img
-                  src="img/Tiktok.png"
-                  alt="TikTok"
-                  width="24"
-                  height="24"
-              /></a>
-            </li>
-            <li>
-              <a href="#" title="Instagram"
-                ><img
-                  src="img/Instagram.png"
-                  alt="Instagram"
-                  width="24"
-                  height="24"
-              /></a>
-            </li>
-            <li>
-              <a href="#" title="YouTube"
-                ><img
-                  src="img/Youtube.png"
-                  alt="YouTube"
-                  width="24"
-                  height="24"
-              /></a>
-            </li>
-          </ul>
+        <ul class="social-icons">
+        <li>
+          <a href="#" class="fb"><i data-feather="facebook"></i></a>
+        </li>
+        <li>
+          <a href="#"><i data-feather="instagram"></i></a>
+        </li>
+        <li>
+          <a href="#"><i data-feather="twitter"></i></a>
+        </li>
+        <li>
+          <a href="#"><i data-feather="linkedin"></i></a>
+        </li>
+      </ul>
         </div>
       </div>
       <div class="center-section">
@@ -163,12 +134,6 @@
           <li><a href="#">About</a></li>
           <li><a href="#">Contact</a></li>
         </ul>
-      </div>
-      <div class="reservation">
-        <h3>Ayo Reservasi Tempatmu Sekarang!</h3>
-        <input type="email" placeholder="Masukkan alamat email .." />
-        <br />
-        <button type="button">RESERVASI</button>
       </div>
     </div>
   </body>

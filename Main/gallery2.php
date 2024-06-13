@@ -66,7 +66,7 @@
     <h2>Upload Gambar</h2>
     <form id="uploadForm" enctype="multipart/form-data" action="upload2.php" method="POST">
         <label for="image">Pilih Gambar:</label>
-        <input type="file" name="image" id="image" accept="image/jpeg, image/png">
+        <input type="file" name="image" id="image" accept="image/jpeg, image/png, image/jpg">
         
         <label for="nama_bukit">Nama Destinasi:</label>
         <input type="text" name="nama_bukit" id="nama_bukit">
@@ -84,4 +84,7 @@
         <button type="submit">Unggah</button>
     </form>
 </body>
+<body>
+  <?php include "layout/footer.php"?>
+  </body>
 </html>

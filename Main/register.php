@@ -85,5 +85,8 @@ echo "<script>
 
     </div>
 </body>
+<body>
+  <?php include "layout/footer.php"?>
+  </body>
 
 </html>

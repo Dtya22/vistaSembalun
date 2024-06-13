@@ -31,7 +31,6 @@ function setLoginCookies($name, $password) {
     setcookie("cookie_password", md5($password), $cookie_time, "/");
 }
 
-<?php
 if (isset($_POST['login'])) {
     $name = isset($_POST['name']) ? $_POST['name'] : "";
     $password = isset($_POST['password']) ? $_POST['password'] : "";
@@ -64,7 +63,7 @@ if (isset($_POST['login'])) {
 }
 ?>
 
-?>
+
 <!DOCTYPE html>
 <lang="en">
 <head>
@@ -92,5 +91,7 @@ if (isset($_POST['login'])) {
         </div>
     </div>
 </body>
-
+<body>
+  <?php include "layout/footer.php"?>
+  </body>
 </html>

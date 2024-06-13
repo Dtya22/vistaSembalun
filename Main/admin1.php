@@ -1,6 +1,7 @@
 <?php
 // Koneksi ke database
 include "database.php";
+session_start();
 
 // Query untuk mengambil data dari tabel Anda (misalnya tabel destinasi_wisata)
 $sql = "SELECT * FROM images";
@@ -33,27 +34,20 @@ $result2 = $conn->query($sql2);
 		<ul class="side-menu top">
 			<li class="active">
 				<a href="admin1.php">
-					<i class='bx bxs-dashboard' ></i>
-					<span class="text">Dashboard</span>
+					<i class='bx bx-water' ></i>
+					<span class="text">Waterfall</span>
 				</a>
 			</li>
 			<li>
 				<a href="bukit.php">
-					<i class='bx bxs-shopping-bag-alt' ></i>
-					<span class="text">My Store</span>
+					<i class='bx bxs-landscape' ></i>
+					<span class="text">Mountain & Hill</span>
 				</a>
 			</li>
 			<li>
 		</ul>
-		<ul class="side-menu">
 			<li>
-				<a href="#">
-					<i class='bx bxs-cog' ></i>
-					<span class="text">Settings</span>
-				</a>
-			</li>
-			<li>
-				<a href="#" class="logout">
+				<a href="logout.php" class="logout">
 					<i class='bx bxs-log-out-circle' ></i>
 					<span class="text">Logout</span>
 				</a>

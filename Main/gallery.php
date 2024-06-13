@@ -81,13 +81,11 @@
         <label for="deskripsi">Deskripsi Wisata:</label><br>
         <textarea id="deskripsi" name="deskripsi" rows="10" cols="52"></textarea><br>
 
-        <label for="lattitude">Latitude:</label>
-        <input type="text" id="lat" name="latitude" ><br>
-        <label for="longitude">Longitude:</label>
-        <input type="text" id="lng" name="longitude"><br>
-
         
         <button type="submit">Unggah</button>
     </form>
 </body>
+<body>
+  <?php include "layout/footer.php"?>
+  </body>
 </html>

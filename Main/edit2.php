@@ -17,6 +17,7 @@ if(isset($_GET['id_destinasi'])) {
         $row = $result->fetch_assoc();
         $nama_destinasi = $row['nama_bukit'];
         $alamat = $row['alamat_bukit'];
+        $harga_tiket = $row['harga_tiket'];
         $deskripsi = $row['deskripsi_bukit'];
 
         // Periksa apakah tombol "Simpan Perubahan" ditekan
@@ -25,9 +26,10 @@ if(isset($_GET['id_destinasi'])) {
             $nama_destinasi_baru = $_POST['nama_bukit'];
             $alamat_baru = $_POST['alamat_bukit'];
             $deskripsi_baru = $_POST['deskripsi_bukit'];
+            $tiket_baru = $_POST['harga_tiket'];
             
             // Update data di database
-            $update_sql = "UPDATE destinasi_bukit SET nama_bukit='$nama_destinasi_baru', alamat_bukit='$alamat_baru', deskripsi_bukit='$deskripsi_baru' WHERE id_destinasi=$id";
+            $update_sql = "UPDATE destinasi_bukit SET nama_bukit='$nama_destinasi_baru', alamat_bukit='$alamat_baru', deskripsi_bukit='$deskripsi_baru',harga_tiket='$tiket_baru' WHERE id_destinasi=$id";
 
             if ($conn->query($update_sql) === TRUE) {
                 // Pesan berhasil disimpan dalam variabel PHP
@@ -58,6 +60,8 @@ if(isset($_GET['id_destinasi'])) {
         <input type="text" id="nama_bukit" name="nama_bukit" value="<?php echo $nama_destinasi; ?>"><br>
         <label for="alamat">Alamat:</label><br>
         <input type="text" id="alamat_bukit" name="alamat_bukit" value="<?php echo $alamat; ?>"><br>
+        <label for="harga_tiket">Harga tiket:</label><br>
+        <input type="text" id="harga_tiket" name="harga_tiket" value="<?php echo $harga_tiket; ?>"><br>
         <label for="deskripsi">Deskripsi:</label><br>
         <textarea id="deskripsi_bukit" name="deskripsi_bukit" rows="4" cols="50"><?php echo $deskripsi; ?></textarea><br>
         <button type="submit">Simpan Perubahan</button>
