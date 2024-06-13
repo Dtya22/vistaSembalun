@@ -40,3 +40,24 @@ async function loadImagesFromDatabase() {
   }
   
   loadImagesFromDatabase();
+
+  function initMap() {
+    var defaultLocation = {lat: -37.864, lng: 144.980}; // Koordinat St Kilda
+    var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 13,
+        center: defaultLocation
+    });
+
+    var marker = new google.maps.Marker({
+        position: defaultLocation,
+        map: map
+    });
+
+    // Event listener untuk mendapatkan koordinat ketika peta diklik
+    google.maps.event.addListener(map, 'click', function(event) {
+        var clickedLocation = event.latLng;
+        marker.setPosition(clickedLocation);
+        document.getElementById('lat').value = clickedLocation.lat();
+        document.getElementById('lng').value = clickedLocation.lng();
+    });
+}

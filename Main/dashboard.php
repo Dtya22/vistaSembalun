@@ -2,6 +2,12 @@
 // Koneksi ke database
 $koneksi = mysqli_connect("localhost", "root", "", "vistas");
 
+session_start();
+if (!isset($_SESSION['is_login'])) {
+    header("location:login.php");
+    exit();
+}
+
 // Cek koneksi
 if (mysqli_connect_errno()) {
     echo "Koneksi database gagal: " . mysqli_connect_error();
@@ -12,10 +18,17 @@ if (mysqli_connect_errno()) {
 $query = "SELECT * FROM images";
 $result = mysqli_query($koneksi, $query);
 
+$query2 = "SELECT * FROM destinasi_bukit";
+$result2 = mysqli_query($koneksi, $query2);
+
 // Cek apakah query berhasil
 if (!$result) {
     echo "Terjadi kesalahan saat menjalankan query: " . mysqli_error($koneksi);
     exit();
+}
+if (!$result2) {
+  echo "Terjadi kesalahan saat menjalankan query: " . mysqli_error($koneksi);
+  exit();
 }
 ?>
 
@@ -43,7 +56,6 @@ if (!$result) {
     <script src="https://unpkg.com/feather-icons"></script>
     <!-- my style -->
     <link rel="stylesheet" href="CSS/dashboard.css" />
-    <link rel="stylesheet" href="footer.html" />
   </head>
 
   <body>
@@ -51,20 +63,21 @@ if (!$result) {
         <a href="#" class="logo">
          <img src="img/vistaLogo.png" alt="Logo">
         </a>
-        <a href="#" class="navbar-logo"></a>
+        <a href="dashboard.php" class="navbar-logo">VistaSembalun</a>
+        <a href="dashboard.php" class="navbar-logo"></a>
         <div class="navbar-nav">
-        <a href="#home" id="home">Home</a>
-        <a href="#">Galery</a>
+        <a href="#dashboard.php" id="home">Home</a>
+        <a href="gallery_full.php">Galery</a>
        <a href="#menu">Menu</a>
         <a href="#kontak">Kontak</a>
         </div>
       </div>
       <div class="navbar-extra">
         <div class="search-container">
-        <form id="logoutForm" method="post">
-    <button type="submit" class="logout" id="logout">Log Out</button>
-</form>
-    </div>
+          <form action="logout.php" id="logoutForm" method="post">
+            <button type="submit" class="logout" id="logout">Log Out</button>
+          </form>
+        </div>
     </div>
         </div>
       </div>
@@ -79,11 +92,6 @@ if (!$result) {
             <p class="text-hero">Enjoy Your Dream Vacation With Sembalun</p>
             <p class="text1-hero">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam quasi voluptatem laboriosam a dicta quam, eius sequi id aperiam sunt.</p>
            <p class="text2-hero">Trusted By</p>
-        </div>
-        <div class="search-bar">
-          <form action="searchForm">
-          <input type="text" id="searchInput" class="search-input" placeholder="Cari...">
-          <button type="submit" class="search-button">Cari</button></form>
         </div>
       </main>
     </section>
@@ -105,6 +113,19 @@ if (!$result) {
         </div>
     <?php endwhile; ?>
 </div>
+<p>mountain & hill</p>
+<div class="gallery">
+    <?php while($row = mysqli_fetch_assoc($result2)): ?>
+        <div class="card">
+            <img src="uploads_bukit/<?php echo $row['image_destinasi']; ?>" alt="foto">
+            <div class="card-body">
+                <h3><?php echo $row['nama_bukit']; ?></h3>
+                <p><?php echo $row['alamat_bukit']; ?></p>
+                <a href="detail2.php?id_destinasi=<?php echo $row['id_destinasi']; ?>" class="btn-view">View</a>
+            </div>
+        </div>
+    <?php endwhile; ?>
+</div>
 
 
     <script>
@@ -113,7 +134,7 @@ if (!$result) {
 <script src="JS/scriptdash.js"></script>
   </body>
   <body>
-  <?php include "layout/footer2.php"?>
+  <?php include "layout/footer.php"?>
   </body>
 </html>
 <?php mysqli_close($koneksi); ?>

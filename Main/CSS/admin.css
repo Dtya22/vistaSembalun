@@ -1,95 +1,255 @@
-/* Reset Style */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* General styles */
+:root {
+  --primary: #000000;
+  --bg: #ffffff;
+  --secondary: #59d672;
+  --button: #408af1;
 }
-
 body {
   font-family: Arial, sans-serif;
-  background-color: #f2f2f2;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
 }
 
-header {
-  background-color: #3fa71a;
+/* Sidebar styles */
+#sidebar {
+  background-color:#272827;
   color: #fff;
-  padding: 20px 0;
-  text-align: center;
+  height: 100vh;
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-y: auto;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: #fff;
+}
+
+.brand i {
+  margin-right: 10px;
+}
+
+.side-menu {
+  list-style: none;
+  padding: 0;
+}
+
+.side-menu li {
+  padding: 15px 20px;
+  border-bottom: 1px solid #000000;
+}
+
+
+
+.side-menu li a {
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+
+
+.side-menu li a .text {
+  margin-left: 10px;
+}
+
+/* Content styles */
+#content {
+  margin-left: 250px;
+  padding: 20px;
+  max-width: calc(100% - 250px); /* Maksimum lebar konten = 100% lebar layar - lebar sidebar */
 }
 
 nav {
-  background-color: #444;
-  padding: 10px 0;
-  text-align: center;
-}
-
-nav ul {
-  list-style: none;
-}
-
-nav ul li {
-  display: inline;
-}
-
-nav ul li a {
-  text-decoration: none;
-  color: #fff;
-  padding: 10px 20px;
-}
-
-nav ul li a:hover {
-  background-color: #555;
-}
-
-main {
   display: flex;
-  justify-content: space-around;
-  margin-top: 20px;
-}
-
-.card {
+  align-items: center;
+  justify-content: space-between;
   background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  width: 45%;
+  padding: 10px 20px;
+  border-bottom: 1px solid #ddd;
+  max-width: 100%;
+  overflow-x: auto;
 }
 
-.card h2 {
+nav i {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+nav .nav-link {
+  font-size: 1.2rem;
   color: #333;
-  margin-bottom: 10px;
+  text-decoration: none;
+}
+
+form {
+  display: flex;
+  align-items: center;
+}
+
+.form-input {
+  position: relative;
+}
+
+input[type="search"] {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-right: 10px;
+  max-width: 200px; /* Maksimum lebar input pencarian */
+}
+
+.search-btn {
+  position: absolute;
+  right: 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
+  margin-top: 20px;
+  max-width: 100px /* Maksimum lebar tabel */
 }
 
-table th, table td {
-  border-bottom: 1px solid #ddd;
+table, th, td {
+  border: 1px solid #ddd;
+}
+
+/* CSS */
+th, td {
   padding: 8px;
   text-align: left;
 }
 
-table th {
+
+
+
+th {
+  background-color: #2f893a;
+  color: white;
+}
+/* CSS */
+td.nama_bukit{
+  width: 2000px; /* Ganti nilai sesuai kebutuhan lebar kolom */
+}
+td:nth-child(2), /* Kolom Nama Destinasi */
+td:nth-child(3)  /* Kolom Alamat */ {
+    max-width: 300px; /* Atur lebar maksimum yang sesuai */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+td:nth-child(4) {
+    max-width: 650px; /* Atur lebar maksimum yang sesuai */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+td:nth-child(5) {
+	max-width: 620px; /* Atur lebar maksimum yang sesuai */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+td:nth-child(6) {
+	max-width: 620px; /* Atur lebar maksimum yang sesuai */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+tr:nth-child(even) {
   background-color: #f2f2f2;
-  color: #333;
 }
 
-table tr:nth-child(even) {
-  background-color: #f9f9f9;
+tr:hover {
+  background-color: #ddd;
 }
 
-table tr:hover {
-  background-color: #f2f2f2;
-}
-
-table td a {
+a {
   text-decoration: none;
   color: #007bff;
-  margin-right: 10px;
 }
 
-table td a:hover {
+a:hover {
   text-decoration: underline;
+  color: #0056b3;
+}
+
+.notification, .profile {
+  position: relative;
+}
+
+.notification .num {
+  position: absolute;
+  top: 5px;
+  right: 0;
+  background-color: #ff0000;
+  color: #fff;
+  font-size: 0.8rem;
+  border-radius: 50%;
+  padding: 4px;
+}
+
+.profile img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.logout {
+  color: #ff0000;
+}
+/* CSS untuk tombol Edit dan Hapus */
+.edit-btn, .delete-btn {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.edit-btn {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.delete-btn {
+  background-color: #ff0000;
+  color: #fff;
+}
+
+.edit-btn:hover, .delete-btn:hover {
+  background-color: #0056b3; /* Ubah warna saat tombol dihover */
+}
+/* CSS untuk tombol "Tambah Data" */
+.add-data-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #4CAF50; /* Warna latar hijau */
+  color: white;
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+margin-top: 10px ;
+  transition: background-color 0.3s;
+}
+
+.add-data-button:hover {
+  background-color: #45a049; /* Warna latar hijau sedikit lebih gelap saat hover */
 }

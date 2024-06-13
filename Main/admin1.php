@@ -1,3 +1,14 @@
+<?php
+// Koneksi ke database
+include "database.php";
+
+// Query untuk mengambil data dari tabel Anda (misalnya tabel destinasi_wisata)
+$sql = "SELECT * FROM images";
+$result = $conn->query($sql);
+
+$sql2 = "SELECT * FROM destinasi_bukit";
+$result2 = $conn->query($sql2);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,18 +28,17 @@
 	<!-- SIDEBAR -->
 	<section id="sidebar">
 		<a href="#" class="brand">
-			<i class='bx bxs-smile'></i>
-			<span class="text">AdminHub</span>
+			<span class="text">Vista Admin</span>
 		</a>
 		<ul class="side-menu top">
 			<li class="active">
-				<a href="#">
+				<a href="admin1.php">
 					<i class='bx bxs-dashboard' ></i>
 					<span class="text">Dashboard</span>
 				</a>
 			</li>
 			<li>
-				<a href="#">
+				<a href="bukit.php">
 					<i class='bx bxs-shopping-bag-alt' ></i>
 					<span class="text">My Store</span>
 				</a>
@@ -52,8 +62,6 @@
 	</section>
 	<!-- SIDEBAR -->
 
-
-
 	<!-- CONTENT -->
 	<section id="content">
 		<!-- NAVBAR -->
@@ -61,17 +69,10 @@
 			<i class='bx bx-menu' ></i>
 			<a href="#" class="nav-link">Categories</a>
 			<form action="#">
-				<div class="form-input">
-					<input type="search" placeholder="Search...">
-					<button type="submit" class="search-btn"><i class='bx bx-search' ></i></button>
-				</div>
+				
 			</form>
 			<input type="checkbox" id="switch-mode" hidden>
 			<label for="switch-mode" class="switch-mode"></label>
-			<a href="#" class="notification">
-				<i class='bx bxs-bell' ></i>
-				<span class="num">8</span>
-			</a>
 			<a href="#" class="profile">
 				<img src="img/people.png">
 			</a>
@@ -79,111 +80,35 @@
 		<!-- NAVBAR -->
 
 		<!-- MAIN -->
-		<main>
-			<div class="head-title">
-				<div class="left">
-					<h1>Dashboard</h1>
-					<ul class="breadcrumb">
-						<li>
-							<a href="#">Dashboard</a>
-						</li>
-						<li><i class='bx bx-chevron-right' ></i></li>
-						<li>
-							<a class="active" href="#">Home</a>
-						</li>
-					</ul>
-				</div>
-				<a href="#" class="btn-download">
-					<i class='bx bxs-cloud-download' ></i>
-					<span class="text">Download PDF</span>
-				</a>
-			</div>
+		<table>
+        <tr>
+            <th>ID</th>
+            <th>Nama Destinasi</th>
+            <th>Alamat</th>
+            <th>Deskripsi</th>
+            <th>Action</th>
+        </tr>
+        <?php
+        // Loop untuk menampilkan data dari tabel
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                echo "<tr>";
+                echo "<td>".$row["id"]."</td>";
+                echo "<td>".$row["nama_destinasi"]."</td>";
+                echo "<td>".$row["alamat"]."</td>";
+                echo "<td>".$row["deskripsi"]."</td>";
+                echo "<td><a href='edit.php?id=".$row["id"]."'>Edit</a> | <a href='delete.php?id=".$row["id"]."' onclick='return confirm(\"Apakah Anda yakin ingin menghapus data?\")'>Hapus</a></td>";
+                echo "</tr>";
+            }
+        } else {
+            echo "<tr><td colspan='5'>Tidak ada data</td></tr>";
+        }
+        ?>
+    </table>
+	<a href="gallery.php" class="add-data-button">tambah data</a>
 
-			<ul class="box-info">
-				<li>
-					<i class='bx bxs-calendar-check' ></i>
-					<span class="text">
-						<h3>2</h3>
-						<p>New Order</p>
-					</span>
-				</li>
-				<li>
-					<i class='bx bxs-group' ></i>
-					<span class="text">
-						<h3>2834</h3>
-						<p>Visitors</p>
-					</span>
-				</li>
-				<li>
-					<i class='bx bxs-dollar-circle' ></i>
-					<span class="text">
-						<h3>$2543</h3>
-						<p>Total Sales</p>
-					</span>
-				</li>
-			</ul>
+			
 
-
-			<div class="table-data">
-				<div class="order">
-					<div class="head">
-						<h3>Recent Orders</h3>
-						<i class='bx bx-search' ></i>
-						<i class='bx bx-filter' ></i>
-					</div>
-					<table>
-						<thead>
-							<tr>
-								<th>User</th>
-								<th>Date Order</th>
-								<th>Status</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>
-									<img src="img/people.png">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status completed">Completed</span></td>
-							</tr>
-							<tr>
-								<td>
-									<img src="img/people.png">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status pending">Pending</span></td>
-							</tr>
-							<tr>
-								<td>
-									<img src="img/people.png">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status process">Process</span></td>
-							</tr>
-							<tr>
-								<td>
-									<img src="img/people.png">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status pending">Pending</span></td>
-							</tr>
-							<tr>
-								<td>
-									<img src="img/people.png">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status completed">Completed</span></td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-			</div>
 		</main>
 		<!-- MAIN -->
 	</section>

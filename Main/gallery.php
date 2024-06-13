@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -74,8 +75,17 @@
         <label for="alamat">Alamat:</label>
         <input type="text" name="alamat" id="alamat">
 
-        <label for="harga_tiket">harga tiket:</label>/org
+        <label for="harga_tiket">harga tiket:</label>
         <input type="text" name="harga_tiket" id="harga_tiket">
+        
+        <label for="deskripsi">Deskripsi Wisata:</label><br>
+        <textarea id="deskripsi" name="deskripsi" rows="10" cols="52"></textarea><br>
+
+        <label for="lattitude">Latitude:</label>
+        <input type="text" id="lat" name="latitude" ><br>
+        <label for="longitude">Longitude:</label>
+        <input type="text" id="lng" name="longitude"><br>
+
         
         <button type="submit">Unggah</button>
     </form>

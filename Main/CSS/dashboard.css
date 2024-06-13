@@ -40,7 +40,7 @@
     width: 150px;
     top: -14px;
     position: absolute;
-    left: 50px;
+    left: 80px;
   }
   .navbar .navbar-logo {
     font-size: 2rem;
@@ -48,7 +48,7 @@
     font-family: "Dancing Script", cursive;
     font-optical-sizing: auto;
     color: var(--primary);
-    margin-left: -170px;
+    margin-left: -100px;
   }
   
   .navbar .navbar-nav a {
@@ -82,7 +82,7 @@
   position: relative;
   border-radius: 3px;
   cursor: pointer;
-  right: 45px;
+  right: 30px;
 }
 .gallery-options a {
     display: block;
@@ -120,10 +120,10 @@
   .hero .kotak img {
     width: 1300px;
     height: 550px;
-    right: 100px;
+    right: 1px;
     position: relative;
     display: inline-block;
-    left: 90px;
+    left: 120px;
     border: none;
     border-radius: 0.5%;
   }
@@ -156,7 +156,7 @@
   
   .content .kotak .text-hero {
     position: absolute;
-    top: 35%;
+    top: 45%;
     transform: translate(-50%, -50%);
     left: 50%;
     font-size: 2rem;
@@ -166,7 +166,7 @@
   }
   .content .kotak .text1-hero {
     position: absolute;
-    top: 45%;
+    top: 55%;
     transform: translate(-50%, -50%);
     left: 50%;
     font-size: 1rem;
@@ -176,7 +176,7 @@
   }
   .content .kotak .text2-hero {
     position: absolute;
-    top: 72%;
+    top: 68%;
     transform: translate(-50%, -50%);
     left: 50%;
     font-style: italic;
@@ -189,7 +189,7 @@
     width: 130px;
     height: 70px;
     position: absolute;
-    top: 75%;
+    top: 70%;
     border-radius: 5%;
     left: 45%;
   }
@@ -207,7 +207,7 @@
     width: 1300px;
     height: 50px;
     position: relative;
-    left: 90px;
+    left: 120px;
     justify-content: space-between;
   }
   .hero-after .warning span {
@@ -275,7 +275,7 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     overflow: hidden;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.4);
     height: auto;
 }
 

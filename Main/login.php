@@ -31,6 +31,7 @@ function setLoginCookies($name, $password) {
     setcookie("cookie_password", md5($password), $cookie_time, "/");
 }
 
+<?php
 if (isset($_POST['login'])) {
     $name = isset($_POST['name']) ? $_POST['name'] : "";
     $password = isset($_POST['password']) ? $_POST['password'] : "";
@@ -41,10 +42,21 @@ if (isset($_POST['login'])) {
     if ($result->num_rows > 0) {
         $data = $result->fetch_assoc();
         $_SESSION["is_login"] = true;
-        $_SESSION["username"] = $data["nama_pengguna"]; // Store the username in the session
+        $_SESSION["username"] = $data["nama_pengguna"]; // Simpan username ke dalam sesi
+        $_SESSION["role"] = $data["role"]; // Simpan role ke dalam sesi
+
         // Panggil fungsi untuk mengatur cookies saat login berhasil
         setLoginCookies($name, $password);
-        header("location: dashboard.php");
+
+        // Pengkondisian berdasarkan role
+        if ($data["role"] == 1) {
+            header("location: admin1.php");
+        } else if ($data["role"] == 0) {
+            header("location: dashboard.php");
+        } else {
+            // Jika role tidak diketahui, arahkan ke halaman default
+            header("location: default.php");
+        }
         exit();
     } else {
         echo "Akun tidak ditemukan";
@@ -52,7 +64,7 @@ if (isset($_POST['login'])) {
 }
 ?>
 
-
+?>
 <!DOCTYPE html>
 <lang="en">
 <head>

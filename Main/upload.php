@@ -15,6 +15,7 @@ if(isset($_FILES['image'])){
     $nama_destinasi = $_POST['nama_destinasi'];
     $alamat = $_POST['alamat'];
     $harga_tiket = $_POST['harga_tiket'];
+    $deskripsi =$_POST['deskripsi'];
     
     // Memeriksa ekstensi file
     $imageFileType = strtolower(pathinfo($target,PATHINFO_EXTENSION));
@@ -24,15 +25,16 @@ if(isset($_FILES['image'])){
     }
 
     // Simpan nama file ke database
-    $query = "INSERT INTO images (image_name, nama_destinasi, alamat, harga_tiket) VALUES ('$image', '$nama_destinasi', '$alamat','$harga_tiket')";
+    $query = "INSERT INTO images (image_name, nama_destinasi, alamat, harga_tiket,deskripsi) VALUES ('$image', '$nama_destinasi', '$alamat','$harga_tiket','$deskripsi')";
 
     mysqli_query($koneksi, $query);
 
     // Pindahkan file yang diunggah ke folder uploads
-    if(move_uploaded_file($_FILES['image']['tmp_name'], $target)){
-        echo "Gambar berhasil diunggah.";
-    }else{
-        echo "Terjadi kesalahan saat mengunggah gambar.";
+
+    if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
+        echo "<script>alert('Gambar berhasil diunggah.');</script>";
+    } else {
+        echo "<script>alert('Terjadi kesalahan saat mengunggah gambar.');</script>";
     }
 }
 ?>
