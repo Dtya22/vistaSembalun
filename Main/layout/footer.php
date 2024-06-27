@@ -9,10 +9,9 @@
   </head>
   <body>
 
-  </body>
-
-<footer>
-  <div class="container">
+  
+  <div class="container">    
+  <footer>  
     <div class="footer-content">
       <h3>Contact Us</h3>
       <p>
@@ -34,8 +33,13 @@
         </li>
       </ul>
     </div>
+    </footer>  
   </div>
-</footer>
+  
+
+  </body>
+
+
 <script>
       feather.replace();
     </script>

@@ -1,6 +1,7 @@
 <?php
 // Koneksi ke database
 include "database.php";
+session_start();
 
 // Deklarasi variabel untuk menyimpan pesan kesalahan atau berhasil
 $message = "";

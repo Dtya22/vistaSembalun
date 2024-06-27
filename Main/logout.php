@@ -12,6 +12,6 @@ if (isset($_COOKIE["cookie_username"]) && isset($_COOKIE["cookie_password"])) {
 }
 
 // Redirect to login page
-header("Location: login.php");
+header("Location: index.php");
 exit();
 ?>

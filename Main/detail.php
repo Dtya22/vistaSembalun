@@ -1,6 +1,6 @@
 <?php
 include "database.php";
-
+session_start();
 
 // Periksa apakah parameter ID ada dalam URL
 if(isset($_GET['id'])) {
@@ -27,7 +27,7 @@ if(isset($_GET['id'])) {
     echo "ID tidak ditemukan dalam URL.";
 }
 
-
+$deskripsi=nl2br($deskripsi);
 // Tutup koneksi
 $conn->close();
 ?>
@@ -59,9 +59,9 @@ $conn->close();
         <a href="dashboard.php" class="navbar-logo"></a>
         <div class="navbar-nav">
         <a href="dashboard.php" id="home">Home</a>
-        <a href="gallery_full.php">Galery</a>
-       <a href="#menu">Menu</a>
-        <a href="#kontak">Kontak</a>
+        <a href="gallery_full.php">Gallery</a>
+       <a href="about.php">About</a>
+        <a href="contact.php">Contact</a>
         </div>
       </div>
       <div class="navbar-extra">
@@ -81,17 +81,7 @@ $conn->close();
         <p><strong>Harga Tiket:</strong> <?php echo $harga_tiket; ?></p>
         <p><strong>Deskripsi Wisata:</strong> <?php echo $deskripsi; ?></p>
         <!-- Tombol untuk pembayaran -->
-        <form action="pembayaran.php" method="post">
-            <input type="hidden" name="id_destinasi" value="<?php echo $id; ?>">
-            <input type="hidden" name="harga_tiket" value="<?php echo $harga_tiket; ?>">
-            <button type="submit">Bayar Tiket</button>
-        </form>
     </div>
-</body>
-<body id="kontak">
-    <section id="kontak">
-        <?php include "layout/footer.php"?>
-    </section>
 </body>
 </html>
 

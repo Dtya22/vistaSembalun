@@ -46,6 +46,13 @@ $result2 = $conn->query($sql2);
 			</li>
 			<li>
 		</ul>
+		<ul class="side-menu">
+			<li>
+				<a href="saran_admin.php" class="logout">
+					<i class='bx bxs-message-alt-edit'></i>
+					<span class="text">Saran</span>
+				</a>
+			</li>
 			<li>
 				<a href="logout.php" class="logout">
 					<i class='bx bxs-log-out-circle' ></i>
@@ -60,15 +67,9 @@ $result2 = $conn->query($sql2);
 	<section id="content">
 		<!-- NAVBAR -->
 		<nav>
-			<i class='bx bx-menu' ></i>
-			<a href="#" class="nav-link">Categories</a>
-			<form action="#">
-				
-			</form>
-			<input type="checkbox" id="switch-mode" hidden>
-			<label for="switch-mode" class="switch-mode"></label>
+			<a href="#" class="nav-link">Waterfall </a>
 			<a href="#" class="profile">
-				<img src="img/people.png">
+				<i class='bx bx-data' ></i>
 			</a>
 		</nav>
 		<!-- NAVBAR -->
@@ -99,7 +100,7 @@ $result2 = $conn->query($sql2);
         }
         ?>
     </table>
-	<a href="gallery.php" class="add-data-button">tambah data</a>
+	<a href="gallery.php" class="add-data-button">Tambah Data</a>
 
 			
 

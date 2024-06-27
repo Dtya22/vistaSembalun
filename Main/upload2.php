@@ -1,7 +1,7 @@
 <?php
 // Koneksi ke database
 $koneksi = mysqli_connect("localhost", "root", "", "vistas");
-
+session_start();
 // Cek koneksi
 if (mysqli_connect_errno()) {
     echo "Koneksi database gagal: " . mysqli_connect_error();
@@ -33,6 +33,7 @@ if(isset($_FILES['image'])){
 
     if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
         echo "<script>alert('Gambar berhasil diunggah.');</script>";
+        echo "<script>window.location.href = 'bukit.php';</script>";
     } else {
         echo "<script>alert('Terjadi kesalahan saat mengunggah gambar.');</script>";
     }

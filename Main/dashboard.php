@@ -66,10 +66,10 @@ if (!$result2) {
         <a href="dashboard.php" class="navbar-logo">VistaSembalun</a>
         <a href="dashboard.php" class="navbar-logo"></a>
         <div class="navbar-nav">
-        <a href="#dashboard.php" id="home">Home</a>
+        <a href="dashboard.php" id="home">Home</a>
         <a href="gallery_full.php">Gallery</a>
-       <a href="#">Menu</a>
-        <a href="#footer.php">Kontak</a>
+        <a href="about.php">About</a>
+        <a href="contact.php">Contact</a>
         </div>
       </div>
       <div class="navbar-extra">
@@ -90,7 +90,7 @@ if (!$result2) {
             <img src="img/wonder.png" alt="Dinpar Logo"/>
           </div>
             <p class="text-hero">Enjoy Your Dream Vacation With Sembalun</p>
-            <p class="text1-hero">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam quasi voluptatem laboriosam a dicta quam, eius sequi id aperiam sunt.</p>
+            <p class="text1-hero">"Nikmati Keelokan Alam Sembalun, Di Mana Pemandangan Hijau dan Latar Belakang Gunung Rinjani Membawa Kedamaian Jiwa. Temukan Keindahan Tersembunyi di Lembah Sembalun, di Mana Setiap Langkah Membawa Anda Lebih Dekat ke Surga Alam Lombok"</p>
            <p class="text2-hero">Trusted By</p>
         </div>
       </main>
@@ -98,7 +98,7 @@ if (!$result2) {
     <section class="hero-after">
     <div class="warning">
       <a href="#"><i class="icon" data-feather="alert-triangle"></i></a>
-      <p>Check the latest COVID-19 restriction before you travel. <span>Learn more</span></p>
+      <p>Check the latest COVID-19 restriction before you travel. <a href="https://www.cdc.gov/coronavirus/2019-ncov/your-health/about-covid-19.html">Learn more</a></p>
     </div>
     </section>
     <div class="Hcategory">
@@ -138,7 +138,7 @@ if (!$result2) {
     </script>
 <script src="JS/scriptdash.js"></script>
   </body>
-<body id="kontak">
+<body>
     <section id="kontak">
         <?php include "layout/footer.php"?>
     </section>

@@ -47,7 +47,7 @@ body {
   font-family: "Dancing Script", cursive;
   font-optical-sizing: auto;
   color: var(--primary);
-  margin-left: -132px;
+  margin-left: 50px;
 }
 
 .navbar .navbar-nav a {

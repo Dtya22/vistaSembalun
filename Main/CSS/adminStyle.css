@@ -135,29 +135,24 @@ th, td {
 
 td:nth-child(2), /* Kolom Nama Destinasi */
 td:nth-child(3)  /* Kolom Alamat */ {
-    max-width: 300px; /* Atur lebar maksimum yang sesuai */
+    max-width: 320px; /* Atur lebar maksimum yang sesuai */
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 td:nth-child(4) {
-    max-width: 650px; /* Atur lebar maksimum yang sesuai */
+    max-width: 500px; /* Atur lebar maksimum yang sesuai */
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 td:nth-child(5) {
-	max-width: 620px; /* Atur lebar maksimum yang sesuai */
+	max-width: 400px; /* Atur lebar maksimum yang sesuai */
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-td:nth-child(6) {
-	max-width: 620px; /* Atur lebar maksimum yang sesuai */
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
+
 
 th {
     background-color: #2f893a;

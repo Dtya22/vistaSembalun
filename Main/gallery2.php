@@ -1,3 +1,8 @@
+<?php
+// Koneksi ke database
+include "database.php";
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -74,7 +79,7 @@
         <label for="alamat_bukit">Alamat:</label>
         <input type="text" name="alamat_bukit" id="alamat_bukit">
 
-        <label for="harga_tiket">harga tiket:</label>
+        <label for="harga_tiket">Harga Tiket:</label>
         <input type="text" name="harga_tiket" id="harga_tiket">
         
         <label for="deskripsi_bukit">Deskripsi Wisata:</label><br>
@@ -84,7 +89,4 @@
         <button type="submit">Unggah</button>
     </form>
 </body>
-<body>
-  <?php include "layout/footer.php"?>
-  </body>
 </html>

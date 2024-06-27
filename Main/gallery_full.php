@@ -52,9 +52,9 @@ if (!$result2) {
         <a href="dashboard.php" class="navbar-logo"></a>
         <div class="navbar-nav">
         <a href="dashboard.php" id="home">Home</a>
-        <a href="gallery_full.php">Galery</a>
-       <a href="#menu">Menu</a>
-        <a href="#kontak">Kontak</a>
+        <a href="gallery_full.php">Gallery</a>
+       <a href="about.php">About</a>
+        <a href="contact.php">Contact</a>
         </div>
       </div>
       <div class="navbar-extra">

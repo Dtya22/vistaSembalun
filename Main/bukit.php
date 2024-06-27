@@ -1,6 +1,7 @@
 <?php
 // Koneksi ke database
 include "database.php";
+session_start();
 
 // Query untuk mengambil data dari tabel Anda (misalnya tabel destinasi_wisata)
 $sql = "SELECT * FROM images";
@@ -33,25 +34,26 @@ $result2 = $conn->query($sql2);
 		<ul class="side-menu top">
 			<li class="active">
 				<a href="admin1.php">
-					<i class='bx bxs-dashboard' ></i>
-					<span class="text">Dashboard</span>
+					<i class='bx bx-water' ></i>
+					<span class="text">Waterfall</span>
 				</a>
 			</li>
 			<li>
 				<a href="bukit.php">
-					<i class='bx bxs-shopping-bag-alt' ></i>
-					<span class="text">My Store</span>
+					<i class='bx bxs-landscape' ></i>
+					<span class="text">Mountain & Hill</span>
 				</a>
 			</li>
 			<li>
 		</ul>
 		<ul class="side-menu">
 			<li>
-				<a href="#">
-					<i class='bx bxs-cog' ></i>
-					<span class="text">Settings</span>
+				<a href="saran_admin.php" class="logout">
+					<i class='bx bxs-message-alt-edit'></i>
+					<span class="text">Saran</span>
 				</a>
 			</li>
+		
 			<li>
 				<a href="logout.php" class="logout">
 					<i class='bx bxs-log-out-circle' ></i>
@@ -66,15 +68,9 @@ $result2 = $conn->query($sql2);
 	<section id="content">
 		<!-- NAVBAR -->
 		<nav>
-			<i class='bx bx-menu' ></i>
-			<a href="#" class="nav-link">Categories</a>
-			<form action="#">
-				
-			</form>
-			<input type="checkbox" id="switch-mode" hidden>
-			<label for="switch-mode" class="switch-mode"></label>
+			<a href="#" class="nav-link">Mountain & Hill </a>
 			<a href="#" class="profile">
-				<img src="img/people.png">
+				<i class='bx bx-data' ></i>
 			</a>
 		</nav>
 		<!-- NAVBAR -->
@@ -105,7 +101,7 @@ $result2 = $conn->query($sql2);
         }
         ?>
     </table>
-	<a href="gallery2.php" class="add-data-button">tambah data</a>
+	<a href="gallery2.php" class="add-data-button">Tambah Data</a>
 
 			
 
